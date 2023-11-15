@@ -9,7 +9,11 @@
   margin-left: 15px;
 }
 
-.list {
+.addCities {
+  padding: 2px;
+}
+
+.listCities {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1rem;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import CityWeather from './components/CityWeather';
+import AddCity from './components/AddCity'
 
 class App extends Component {
   state = {
@@ -24,7 +25,8 @@ class App extends Component {
           <h1>My Weather App - React-Redux</h1>
         </div>
         <div className="content">
-          <div className="list">
+          <AddCity addCity={this.addCity} />
+          <div className="listCities">
             {
               this.state.cities.map(city => (
                 <CityWeather cityName={city} />
