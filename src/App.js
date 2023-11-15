@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-          <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-       <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import CityWeather from './components/CityWeather';
+
+class App extends Component {
+  state = {
+    cities: ['New York', 'Chennai', 'Monterrey', 'São Paulo', 'Rio de Janeiro'],
+  };
+
+  // This function adds a City name to the current state.
+  addCity = newCityName => {
+    this.setState(prevState => {
+      return {
+        cities: [...prevState.cities, newCityName],
+      };
+    });
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <div className="header">
+          <h1>My Weather App - React-Redux</h1>
+        </div>
+        <div className="content">
+          <div className="list">
+            {
+              this.state.cities.map(city => (
+                <CityWeather cityName={city} />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
